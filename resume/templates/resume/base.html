@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="keywords" content="简历单页, yuangezhizao">
+    <meta name="description" content="简历单页，远哥制造">
+    <meta name="author" content="yuangezhizao"/>
+    <meta name="Copyright" content="Copyright yuangezhizao All Rights Reserved."/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/semantic-ui/2.2.14/semantic.min.css">
+    <link rel="dns-prefetch" href="//www.yuangezhizao.cn">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div class="ui centered grid">
+    <div class="sixteen wide mobile ten wide tablet ten wide computer column">
+        <div class="ui blue pointing menu">
+            {% block nav %}
+                <a class="item" ><i class="home icon"></i>首页</a>
+            {% endblock %}
+        </div>
+        {% block content %}{% endblock %}<br>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/semantic-ui/2.2.14/semantic.min.js"></script>
+<script>
+    $('.ui.checkbox').checkbox();
+    $('.ui.accordion').accordion();// ﾉ♥
+    $('.ui.dropdown').dropdown();
+    $('.menu .item').tab();
+    $('.message .close').on('click', function () {
+        $(this).closest('.message').transition('fade');
+    });
+
+
+    function gEle(a) {
+        return document.getElementById(a)
+    }
+
+</script>
+{% block script %}{% endblock %}
+</body>
+</html>

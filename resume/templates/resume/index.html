@@ -1,0 +1,70 @@
+{% extends 'resume/base.html' %}
+{% load static %}
+
+
+{% block title %}简历单页{% endblock %}
+
+
+{% block content %}
+    <h2 style="text-align:center;">个人资料</h2>
+    <div class="ui attached brown segment">
+        <div class="ui brown horizontal label">姓名</div>
+        {{ user.name }}
+    </div>
+    <div class="ui attached red segment">
+        <div class="ui red horizontal label">详情</div>
+        {{ user.content }}
+    </div>
+    <br>
+    <h2 style="text-align:center;">作品展示</h2>
+    <div>
+        <a href="https://lab.yuangezhizao.cn" target="_blank">
+            <img width="900" src="{% static "resume/gallery.jpg" %}">
+        </a>
+    </div>
+    <br>
+    <h2 style="text-align:center;">留言板</h2>
+    <table class="tablesorter ui sortable unstackable celled striped red compact table">
+        <thead>
+        <tr class="positive">
+            <th>昵称</th>
+            <th>内容</th>
+            <th>时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if messages %}
+            {% for message in messages %}
+                <tr>
+                    <td>{{ message.username }}</td>
+                    <td>{{ message.content }}</td>
+                    <td>{{ message.time|date:'Y-m-d H:i:s' }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4">没有留言</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    <br>
+    <h2 style="text-align:center;">我也要留言</h2>
+    <div class="ui raised segment">
+        <form class="ui small form" action="/resume/save_message/" novalidate="novalidate" method="POST">
+            <div class="two required fields">
+                <div class="field">
+                    <label>用户名</label>
+                    <input class="ui input" type="text" name="username" id="username" placeholder="用户名" autofocus
+                           required>
+                </div>
+                <br>
+                <div class="field">
+                    <label>内容</label>
+                    <input name="content" placeholder="内容"></input>
+                </div>
+            </div>
+            {% csrf_token %}
+            <input class="ui green submit button" type="submit" value="留言"/>
+        </form>
+{% endblock %}
