@@ -1,20 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e0eba63583a7777ad2aec379073e7fbabad9eb003c979b8cd4a85f63f7374a8f"
-        },
-        "host-environment-markers": {
-            "implementation_name": "cpython",
-            "implementation_version": "3.6.5",
-            "os_name": "nt",
-            "platform_machine": "AMD64",
-            "platform_python_implementation": "CPython",
-            "platform_release": "10",
-            "platform_system": "Windows",
-            "platform_version": "10.0.17763",
-            "python_full_version": "3.6.5",
-            "python_version": "3.6",
-            "sys_platform": "win32"
+            "sha256": "914a27cfb2bbeb192ccf444e0c6577b56fe5e5d52579f0f367ca14d7322d17e3"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -30,8 +17,12 @@
     },
     "default": {
         "django": {
-            "hashes": [],
-            "version": "==2.1.5"
+            "hashes": [
+                "sha256:275bec66fd2588dd517ada59b8bfb23d4a9abc5a362349139ddda3c7ff6f5ade",
+                "sha256:939652e9d34d7d53d74d5d8ef82a19e5f8bb2de75618f7e5360691b6e9667963"
+            ],
+            "index": "pypi",
+            "version": "==2.1.7"
         },
         "pytz": {
             "hashes": [
